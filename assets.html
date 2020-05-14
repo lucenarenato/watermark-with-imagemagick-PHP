@@ -1,0 +1,19 @@
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> 
+
+<span class="token comment">// Create instance of the original image</span>
+<span class="token variable">$image</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Imagick</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$image</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">readImage</span><span class="token punctuation">(</span><span class="token double-quoted-string string">"image.jpg"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Create instance of the Watermark image</span>
+<span class="token variable">$watermark</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Imagick</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$watermark</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">readImage</span><span class="token punctuation">(</span><span class="token double-quoted-string string">"watermark.png"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// The start coordinates where the file should be printed</span>
+<span class="token variable">$x</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token variable">$y</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Draw watermark on the image file with the given coordinates</span>
+<span class="token variable">$image</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">compositeImage</span><span class="token punctuation">(</span><span class="token variable">$watermark</span><span class="token punctuation">,</span> <span class="token scope">Imagick<span class="token punctuation">::</span></span><span class="token constant">COMPOSITE_OVER</span><span class="token punctuation">,</span> <span class="token variable">$x</span><span class="token punctuation">,</span> <span class="token variable">$y</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Save image</span>
+<span class="token variable">$image</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">writeImage</span><span class="token punctuation">(</span><span class="token double-quoted-string string">"image_watermark."</span> <span class="token punctuation">.</span> <span class="token variable">$image</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getImageFormat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> </span></code></pre><div class="toolbar"><div class="toolbar-item"><a class=" btn btn-default"><i class="fa fa-clipboard"></i> Copy snippet</a></div></div></div>
